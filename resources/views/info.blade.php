@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero porro officia est non eum quasi nemo, odio ea nulla facere minima dolorum cum exercitationem alias ducimus magnam eveniet iste tempore.
-   <p>
-    <a href="/product">product</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium reiciendis exercitationem ea quaerat quasi velit id saepe repudiandae inventore sunt incidunt, recusandae praesentium accusamus totam.</p>
 </body>
 </html>

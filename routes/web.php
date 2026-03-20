@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,6 +12,5 @@ Route::get('/about', function () {
 Route::get('/info', function () {
     return view('info');
 });
-Route::get('/product', function () {
-    return view('product');
-});
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{id}/delete', [ProductController::class, 'destroy']);
