@@ -7,5 +7,7 @@
 </head>
 <body>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero porro officia est non eum quasi nemo, odio ea nulla facere minima dolorum cum exercitationem alias ducimus magnam eveniet iste tempore.
+   <p>
+    <a href="/product">product</a>
 </body>
 </html>
