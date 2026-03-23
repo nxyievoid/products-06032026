@@ -7,9 +7,9 @@
             @method('delete')
             <button>Delete</button>
         </form>
-        <form action="/products/{{ $singleProduct->id }}/edit" method="get">
+        <!-- <form action="/products/{{ $singleProduct->id }}/edit" method="get">
             <button>Edit</button>
-        </form>
+        </form> -->
         <a href="/products/{{ $singleProduct->id }}/edit">Edit</a>
     @endforeach
 </div>
