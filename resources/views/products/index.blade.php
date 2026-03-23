@@ -10,6 +10,7 @@
         <form action="/products/{{ $singleProduct->id }}/edit" method="get">
             <button>Edit</button>
         </form>
+        <a href="/products/{{ $singleProduct->id }}/edit">Edit</a>
     @endforeach
 </div>
 <a href="/form">go back to form</a>
