@@ -7,7 +7,7 @@
             @method('delete')
             <button>Delete</button>
         </form>
-        <form action="/products/{{ $singleProduct->id }}/edit" method="GET">
+        <form action="/products/{{ $singleProduct->id }}/edit" method="get">
             <button>Edit</button>
         </form>
     @endforeach
