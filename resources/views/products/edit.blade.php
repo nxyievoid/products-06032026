@@ -1,6 +1,6 @@
-<form action="/products/{{ $product->id }}" method="post">
+<form action="{{ route('products.update', $product->id) }}" method="POST">
     @csrf
-    @method('put')
+    @method('PUT')
     <input type="text" name="name" value="{{ $product->name }}">
     <button>Update</button>
 </form>
