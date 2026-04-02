@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
@@ -14,26 +15,58 @@ class ProductController extends Controller
         return view('products.index', compact('allProducts'));
     }
 
-    public function store(Request $request)
+    // Parāda formu jauna produkta izveidei
+    public function create()
     {
-        $request->validate(['name' => 'required|string|min:4|max:255']);
-        Product::create(['name' => $request->input('name')]);
-        return redirect()->route('products.index')->with('success', 'Product created successfully!');
+        return view('products.create');
     }
 
+    // Saglabā jaunu produktu ar try..catch
+    public function store(Request $request)
+    {
+        try {
+            $request->validate([
+                'name' => 'required|string|min:4|max:255'
+            ]);
+
+            Product::create(['name' => $request->input('name')]);
+
+            return redirect()->route('products.index')->with('success', 'Product created successfully!');
+        } catch (ValidationException $e) {
+            return redirect()->back()
+                             ->withErrors($e->errors())
+                             ->withInput()
+                             ->with('error', 'Please correct the form errors!');
+        }
+    }
+
+    // Parāda rediģēšanas formu
     public function edit(Product $product)
     {
         return view('products.edit', compact('product'));
     }
 
+    // Atjauno esošu produktu ar try..catch
     public function update(Request $request, Product $product)
     {
-        $request->validate(['name' => 'required|string|min:4|max:255']);
-        $product->name = $request->input('name');
-        $product->save();
-        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+        try {
+            $request->validate([
+                'name' => 'required|string|min:4|max:255'
+            ]);
+
+            $product->name = $request->input('name');
+            $product->save();
+
+            return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+        } catch (ValidationException $e) {
+            return redirect()->back()
+                             ->withErrors($e->errors())
+                             ->withInput()
+                             ->with('error', 'Please correct the form errors!');
+        }
     }
 
+    // Dzēš produktu
     public function destroy(Product $product)
     {
         $product->delete();
